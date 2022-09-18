@@ -19,16 +19,17 @@ public class General {
             throw new RuntimeException(e);
         }
         StringBuilder fileTextString = new StringBuilder();
-        StringBuilder wordString = new StringBuilder();
+        StringBuilder wordStringBuilder = new StringBuilder();
         for (byte b : fileText) {
-            fileTextString.append(b);
+            fileTextString.append((char) b);
         }
-        String[] splitText = String.valueOf(fileTextString).split("32");
+        String[] splitText = String.valueOf(fileTextString).split(" ");
         for (byte b : word) {
-            wordString.append(b);
+            wordStringBuilder.append((char) b);
         }
+        String wordString = String.valueOf(wordStringBuilder);
         for (String s : splitText) {
-            if (s.equals(String.valueOf(wordString))) {
+            if (s.equals(wordString)) {
                 counter++;
             }
         }
